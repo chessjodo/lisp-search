@@ -44,10 +44,18 @@ In file:grid.lisp you will find a function =generate-grid-neighbours= which will
 
 Consider a suitable function to estimate distance to go. You might consider [[https://en.wikipedia.org/wiki/Euclidean_distance][Euclidean distance]] using Pythagoras or so-called [[https://en.wikipedia.org/wiki/Taxicab_geometry][Manhattan distance]]. What are the pros and cons of each?
 
-You might imagine that the search is relatively easy when there are few walls. The search algorithm should readily find a direct rout.
+You might imagine that the search is relatively easy when there are few walls. The search algorithm should readily find a direct route. In such cases we say the problem is /underconstrained/.
 
-The search is also relatively easy when there are many walls. The algorithm quickly gets block and returns failure.
+The search is also relatively easy when there are many walls. The algorithm quickly gets block and returns failure. In such cases we say the problem is /overconstrained/.
 
 But somewhere in the middle there is a number of walls which makes the search particularly difficult. Your task is to find what number of walls makes the search the most difficult.
 
 Since the walls are placed randomly, you might like to try a number of experiments. For example, generate a neighbour function with 50 walls and measure how long it takes your search algorithm to find a path. Then repeat this several times and take the average.  Now repeat this for different numbers of walls.
+
+For more background on questions of this kind see:
+- [[https://en.wikipedia.org/wiki/Percolation_theory][Percolation theory]]
+- [[https://en.wikipedia.org/wiki/Phase_transition][Phase transition]]
+- [[http://bit-player.org/wp-content/extras/bph-publications/AmSci-1997-03-Hayes-SAT.pdf][Can't get no Satisfaction]]
+- [[https://www.nature.com/articles/22055][Determining computational complexity from characteristic ‘phase transitions’]]
+- [[https://www.sciencedirect.com/science/article/abs/pii/S0378437102005162][Phase transitions and complexity in computer science: an overview of the
+  statistical physics approach to the random satisfiability problem]]
