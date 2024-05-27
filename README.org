@@ -23,7 +23,8 @@ Norvig.
 * Exercises
 1. For the fox-duck-grain puzzle (more usually known as the [[https://en.wikipedia.org/wiki/Wolf,_goat_and_cabbage_problem][Wolf, goat and
    cabbage problem]],
-   - Design a data structure to hold the salient aspects of a /state/ of the problem.
+   - Design a data structure to hold the salient aspects of a /state/ of the
+     problem, together with accessors and other utility functions.
    - Design a /successor/ function which takes a state and returns all states
      reachable from it according to the constraints of the puzzle.
    - Select a suitable search algorithm from those in the repo and show how you
