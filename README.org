@@ -34,7 +34,7 @@ Norvig.
    the beam width affect the quality of the search for various ranges?
 4. Consider a 2-dimensional grid of =100x100= points. (The one shown below is only 10x10 but consider a larger one.)
 
-./images/100_grid.svg
+[[./images/100_grid.svg]]
 
 From each point in the grid the neighbours are at the four compass points (North, South, East, West) so the neighbours of the points =(3, 4)= are =(2, 4), (5, 4), (3, 3), (3, 5)=. We would like to search for a path from =(99, 99)= to =(0, 0)=. As it stands this is not difficult so let's make it more interesting.
 
