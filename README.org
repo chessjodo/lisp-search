@@ -1,0 +1,53 @@
+#+TITLE: Assignment on searching algorithms in Lisp
+#+PROPERTY: header-args:lisp :results raw :eval no
+
+Lisp code for an assignment on searching algorithms in Lisp. It is based on the
+code in the book [[https://github.com/norvig/paip-lisp][Paradigms of Artificial Intelligence Programming]] by Peter
+Norvig.
+
+* The set-up
+1. On our Forgejo server, fork this repo.
+2. Clone your fork of the repo to our Linux server.
+3. Start sbcl
+4. The ~search-assignment~ package uses several other Lisp packages which you
+   will need to download using this command:
+   : (ql:quickload '(:iterate :sqlite :alexandria))
+   You need to do this only once.
+5. Load the ~search-assignment~ package
+    : (ql:quickload :search-assignment)
+6. Work in the package
+   : (in-package :search-assignment)
+7. Now experiment with the code to understand how the various search algorithms
+   behave on binary trees and cities.
+
+* Exercises
+1. For the fox-duck-grain puzzle (more usually known as the [[https://en.wikipedia.org/wiki/Wolf,_goat_and_cabbage_problem][Wolf, goat and
+   cabbage problem]],
+   - Design a data structure to hold the salient aspects of a /state/ of the problem.
+   - Design a /successor/ function which takes a state and returns all states
+     reachable from it according to the constraints of the puzzle.
+   - Select a suitable search algorithm from those in the repo and show how you
+     can use it to solve the puzzle.
+2. Repeat the steps of the previous exercise for the [[https://www.geeksforgeeks.org/puzzle-measure-4-litre-with-3-and-5-litre-bottle/][Measure 4 litre with 3 and 5 litre bottle puzzle]]
+3. Experiment with beam search on the cities data. (You can access the data in
+   the ~*cities*~ variable in the file file:cities.lisp in this repo.) How does
+   the beam width affect the quality of the search for various ranges?
+4. Consider a 2-dimensional grid of =100x100= points. (The one shown below is only 10x10 but consider a larger one.)
+
+./images/100_grid.svg
+
+From each point in the grid the neighbours are at the four compass points (North, South, East, West) so the neighbours of the points =(3, 4)= are =(2, 4), (5, 4), (3, 3), (3, 5)=. We would like to search for a path from =(99, 99)= to =(0, 0)=. As it stands this is not difficult so let's make it more interesting.
+
+On the grid we will put up some walls at random. Each wall is 10 units long and it is placed either East-West or North-South. For example a wall placed from =(3, 4)= to =(3, 4)= to =(12, 4)= would prevent our search for visiting any of the points on that line segment.
+
+In file:grid.lisp you will find a function =generate-grid-neighbours= which will generate a neighbours function you can use for the search algorithms. (Note you should not use the function itself, but the function it generates.)
+
+Consider a suitable function to estimate distance to go. You might consider [[https://en.wikipedia.org/wiki/Euclidean_distance][Euclidean distance]] using Pythagoras or so-called [[https://en.wikipedia.org/wiki/Taxicab_geometry][Manhattan distance]]. What are the pros and cons of each?
+
+You might imagine that the search is relatively easy when there are few walls. The search algorithm should readily find a direct rout.
+
+The search is also relatively easy when there are many walls. The algorithm quickly gets block and returns failure.
+
+But somewhere in the middle there is a number of walls which makes the search particularly difficult. Your task is to find what number of walls makes the search the most difficult.
+
+Since the walls are placed randomly, you might like to try a number of experiments. For example, generate a neighbour function with 50 walls and measure how long it takes your search algorithm to find a path. Then repeat this several times and take the average.  Now repeat this for different numbers of walls.
