@@ -18,7 +18,7 @@ Norvig.
 6. Work in the package
    : (in-package :search-assignment)
 7. Now experiment with the code to understand how the various search algorithms
-   behave on binary trees and cities.
+   behave on binary trees and cities. (See the interactions shown in class.)
 
 * Exercises
 1. For the fox-duck-grain puzzle (more usually known as the [[https://en.wikipedia.org/wiki/Wolf,_goat_and_cabbage_problem][Wolf, goat and
