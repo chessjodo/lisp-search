@@ -11,7 +11,7 @@ Norvig.
 3. Start sbcl
 4. The ~search-assignment~ package uses several other Lisp packages which you
    will need to download using this command:
-   : (ql:quickload '(:iterate :sqlite :alexandria))
+   : (ql:quickload '(:iterate :alexandria))
    You need to do this only once.
 5. Load the ~search-assignment~ package
     : (ql:quickload :search-assignment)
