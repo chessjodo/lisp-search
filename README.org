@@ -7,7 +7,10 @@ Norvig.
 
 * The set-up
 1. On our Forgejo server, fork this repo.
-2. Clone your fork of the repo to our Linux server.
+2. Clone your fork of the repo to our Linux server. Remember to clone it into a
+   place where ~quicklisp~ can find it. The easiest way to do this is to first
+   : cd ~/quicklisp/local-projects
+   before cloning.
 3. Start sbcl
 4. The ~search-assignment~ package uses several other Lisp packages which you
    will need to download using this command:
