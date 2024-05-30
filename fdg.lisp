@@ -53,3 +53,23 @@
                        (move :fox state)
                        (move :duck state)
                        (move :grain state))))
+
+(defun prepend (l1 l2)
+  (append l2 l1))
+
+(defconstant fail nil "Indicates failure")
+
+(defun tree-search (states goal-p successors combiner)
+  "Find a state that satisfies goal-p.
+   Start with states,and search according to successors and combiner."
+  (cond ((null states) fail)
+        ((funcall goal-p (first states)) (first states))
+        (t (tree-search (funcall combiner
+                                 (funcall successors (first states))
+                                 (rest states))
+                        goal-p
+                        successors
+                        combiner))))
+
+(defun breadth-first-search (start)
+  (tree-search (list start) (is-goal-state) #'find-successors #'prepend))
