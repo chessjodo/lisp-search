@@ -1,11 +1,10 @@
 (in-package :search-assignment)
 
 (defstruct state
-  (left nil)
-  (right nil))
+  woman
+  fox
+  duck
+  grain)
 
-(defun get-left (state)
-  (state-left state))
-
-(defun get-right (state)
-  (state-right state))
+(defun make-start ()
+  (make-state :woman 0 :fox 0 :duck 0 :grain 1))
