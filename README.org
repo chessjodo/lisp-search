@@ -5,6 +5,8 @@ Lisp code for an assignment on searching algorithms in Lisp. It is based on the
 code in the book [[https://github.com/norvig/paip-lisp][Paradigms of Artificial Intelligence Programming]] by Peter
 Norvig.
 
+Find answers to questions 3 and 4 in the repository Wiki page.
+
 * The set-up
 1. On our Forgejo server, fork this repo.
 2. Clone your fork of the repo to our Linux server. Remember to clone it into a
