@@ -68,10 +68,13 @@ one, leading to a complex central angle. To prevent this we max the cosine at
                (lambda (city) (great-circle-distance city (city dest)))
                1))
 
-(defun trip-range (start dest range)
+(defun trip-range (start dest range &optional (beam-width 1))
   "Search for a way from the start to dest with a given range limit."
   (beam-search (city start)
                (is (city dest))
                (lambda (city) (cities-within-range city range))
                (lambda (city) (great-circle-distance city (city dest)))
-               1))
+               beam-width))
+
+;;;; Tests
+(trip-range "Amsterdam" "Moscow" 600)
