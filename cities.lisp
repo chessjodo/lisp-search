@@ -77,4 +77,7 @@ one, leading to a complex central angle. To prevent this we max the cosine at
                beam-width))
 
 ;;;; Tests
-(trip-range "Amsterdam" "Moscow" 600)
+;;;; (trip-range "Amsterdam" "Moscow" 600)
+;;;; (trip-range "Amsterdam" "Belgrae" 400 1)
+;;;; (trip-range "Amsterdam" "Belgrae" 400 2)
+;;;; (trip-range "Amsterdam" "Belgrae" 400 3)
